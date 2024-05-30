@@ -6,8 +6,8 @@
     <title>שצ</title>
 </head>
 <body>
-    <h1 class="heebo">ש"צ</h1>
-    <input id="search_box" placeholder='חפש ש"צ'/>
+    <h1 class="heebo">ש"צ Engine</h1>
+    <input id="search_box" placeholder='חפש ש"צ [משפט \ מספר]'/>
     <div id="cont"></div>
 </body>
 <script>
@@ -19,6 +19,7 @@
     search_box_change(); // show all results
     search_box_elem.addEventListener('input', search_box_change);
 
+    // keyword can be eather the word or the number
     function search_results(keyword)
     {
         let results_arr = {};
@@ -29,10 +30,19 @@
         }
         else
         {
+            // word or number?
+            let is_word = isNaN(keyword);
+
             for (let i in local_db)
             {
+                let iter;
                 let word = local_db[i];
-                if (word.includes(keyword))
+                if (is_word)
+                    iter = local_db[i];
+                else
+                    iter = i.toString();
+
+                if (iter.includes(keyword))
                 {
                     results_arr[i] = word;
                 }

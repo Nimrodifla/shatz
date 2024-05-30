@@ -56,15 +56,12 @@
             let word = results_arr[i];
             cont_elem.innerHTML += '<div class="word">' + 'ש"צ מספר' + ' [' + i + ']: <strong>' + word + '</strong></div>';
         }
-
-        
     }
 
     function search_box_change()
     {
         console.log("a");
         let keyword = search_box_elem.value;
-
         search_results(keyword);
     }
     
@@ -84,10 +81,10 @@
         margin-bottom: 100px;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1, h2, h3, h4, h5, h6, #search_box {
         font-family: "Heebo", sans-serif;
         font-optical-sizing: auto;
-        font-weight: 200px;
+        font-weight: 300px;
         font-style: normal;
     }
 
@@ -96,6 +93,14 @@
         margin: auto;
         padding: auto;
         width: fit-content;
+    }
+
+    #search_box {
+        padding: 10px;
+        border-radius: 10px;
+        border-style: none;
+        background-color: ghostwhite;
+        outline-color: black;
     }
 
     .word {

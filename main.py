@@ -1,3 +1,5 @@
+import json
+
 # word to valid (remove non letters)
 def w_to_v(w):
     forbiden = ['?', '!', '.', ',']
@@ -23,4 +25,7 @@ res_dict = dict()
 for i, w in enumerate(arr):
     res_dict[i] = w
 
-print(res_dict)
+with open('./words.json', "wb") as w_file:
+    w_file.write(json.dumps(res_dict).encode(encoding='utf-8'))
+
+#print(res_dict)

@@ -17,7 +17,10 @@ buffer = ''
 with open('./words.txt', "rb") as w_file:
     buffer = bytes(w_file.read()).decode(encoding='utf-8')
 
-# parse to list
+# parse to dict
 arr = [i for i in buffer.split('\n') if i]
+res_dict = dict()
+for i, w in enumerate(arr):
+    res_dict[i] = w
 
-print(arr)
+print(res_dict)

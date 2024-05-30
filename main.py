@@ -8,5 +8,5 @@ while u_input != 'end':
 
 words = words[1:]
 
-with open('./words.txt', "w") as res_file:
-    res_file.write(str(words))
+with open('./words.txt', "wb") as res_file:
+    res_file.write(buffer.encode(encoding='utf-8'))

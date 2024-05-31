@@ -1,15 +1,7 @@
 console.log("script loaded succesfuly.");
 
 let local_db;
-
-// Elements:
-let cont_elem = document.getElementById('cont');
-let search_box_elem = document.getElementById('search_box');
-
-// Init Procces:
 parse_db();
-search_box_elem.addEventListener('input', search_box_change);
-search_box_change(); // show all results
 
 // Functions:
 

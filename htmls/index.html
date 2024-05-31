@@ -13,4 +13,13 @@
 </body>
 
 <script src="/script.js"></script>
+<script>
+    // Page Elements:
+    let cont_elem = document.getElementById('cont');
+    let search_box_elem = document.getElementById('search_box');
+
+    // Init Procces
+    search_box_elem.addEventListener('input', search_box_change);
+    search_box_change(); // show all results
+</script>
 </html>

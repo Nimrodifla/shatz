@@ -95,7 +95,7 @@ function load_learing_area(word_number, word, options_arr)
     for (let i in options_arr)
     {
         let opt = options_arr[i];
-        options_elem.innerHTML += '<div onclick="check_learning_choice(' + opt['number'] + ')" class="learning-option" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
+        options_elem.innerHTML += '<div onclick="check_learning_choice(' + opt['number'] + ', this);" class="learning-option" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
                                 '<strong>' + opt['word'] + '</strong>' +
                                 '</div>'
     }
@@ -142,7 +142,7 @@ function load_new_learning()
     return load_learing_area(word_number, word, options_arr);
 }
 
-function check_learning_choice(word_number)
+function check_learning_choice(word_number, btn_elem)
 {
     const wrong_color = 'firebrick';
     const correct_color = 'MediumSeaGreen';
@@ -151,6 +151,9 @@ function check_learning_choice(word_number)
     // correct_word_number is a local var in dua.html 
     if (word_number == correct_word_number)
     {
+        // color btn
+        show_correct_btn(btn_elem);
+
         // show msg
         msg_elem.style.color = correct_color;
         msg_elem.innerHTML = correct_msgs[randint(correct_msgs.length)];
@@ -162,8 +165,21 @@ function check_learning_choice(word_number)
 
     }
     else{
+        // color btn
+        eliminate_btn(btn_elem);
+
         // show msg
         msg_elem.style.color = wrong_color;
         msg_elem.innerHTML = wrong_msgs[randint(wrong_msgs.length)];
     }
+}
+
+function eliminate_btn(btn_elem)
+{
+    btn_elem.classList.add('eliminated');
+}
+
+function show_correct_btn(btn_elem)
+{
+    btn_elem.classList.add('correct');
 }

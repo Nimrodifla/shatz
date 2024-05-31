@@ -18,7 +18,7 @@
         <br>
         <div id="learningOptions"></div>
         <div id="learningMsg"></div>
-        <button id="nextWord" onclick="correct_word_number = load_new_learning();"><strong>ש"צ הבא</strong></button>
+        <button id="nextWord" onclick="correct_word_number = load_new_learning();">ש"צ הבא 👏</button>
     </div>
 </body>
 
@@ -79,11 +79,13 @@
     #nextWord {
         display: none;
         margin: 10px auto;
-        font-size: 5vh;
+        font-size: 4vh;
         width: 75%;
         background-color: MediumSpringGreen;
         border-style: none;
         border-radius: 15px;
+
+        filter: drop-shadow(3px 3px 10px #7f7f7f);
     }
 
     .learning-option {
@@ -107,5 +109,6 @@
     .correct {
         background-color: rgb(184, 255, 151);
     }
+
 </style>
 </html>

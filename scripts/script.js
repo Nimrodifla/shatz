@@ -106,8 +106,10 @@ function load_learing_area(word_number, word, options_arr)
 
 function load_new_learning()
 {
-    got_correct_ans = false; // local var in dua.html
-    next_btn_elem.style.display = 'none'; // local var in dua.html
+    // local vara in dua.html:
+    got_correct_ans = false;
+    next_btn_elem.style.display = 'none';
+    msg_elem.innerHTML = ''
 
     let word_number = get_random_word_number();
     let word = local_db[word_number];
@@ -175,7 +177,7 @@ function check_learning_choice(word_number, btn_elem)
             // show next word quiz btn
             next_btn_elem.style.display = 'block';
 
-            word_elem.innerHTML = '[' + word_number + ']: ' + local_db[word_number];
+            word_elem.innerHTML = '[<strong>' + word_number + '</strong>]: ' + local_db[word_number];
         }
         else{
             // WRONG!

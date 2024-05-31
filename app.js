@@ -10,6 +10,10 @@ app.get('/', (req, res)=>{
     res.sendFile(htmls_path + '/index.html');
 });
 
+app.get('/shatzlingo', (req, res)=>{
+    res.sendFile(htmls_path + '/dua.html');
+});
+
 app.get('/style.css', (req, res)=>{
     res.sendFile(styles_path + '/style.css');
 });

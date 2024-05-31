@@ -89,13 +89,13 @@ function load_learing_area(word_number, word, options_arr)
 
     correct_elem.style.color = get_color_by_number(db_length, word_number);
     correct_elem.innerHTML = word;
-    word_elem.innerHTML = 'ש"צ מספר ' + word_number;
+    word_elem.innerHTML = 'ש"צ מספר ' + '<strong>' + word_number + '</strong>';
     options_elem.innerHTML = 'בחר את הפירוש הנכון' + '<br>';
 
     for (let i in options_arr)
     {
         let opt = options_arr[i];
-        options_elem.innerHTML += '<div class="learning-options" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
+        options_elem.innerHTML += '<div class="learning-option" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
                                 opt['word'] +
                                 '</div>'
     }

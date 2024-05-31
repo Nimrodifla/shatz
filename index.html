@@ -12,13 +12,17 @@
 </body>
 <script>
     let local_db;
-    parse_db();
 
+    // Elements:
     let cont_elem = document.getElementById('cont');
     let search_box_elem = document.getElementById('search_box');
 
-    search_box_change(); // show all results
+    // Init Procces:
+    parse_db();
     search_box_elem.addEventListener('input', search_box_change);
+    search_box_change(); // show all results
+
+    // Functions:
 
     // in the future - reads from file / remote db
     function parse_db()
@@ -29,7 +33,7 @@
     // get color to a mathing number
     function get_color_by_number(max_number, number)
     {
-        let margin = 40; // so the first & last won't have very simular color but very far numbers
+        let margin = 40; // so the first & last won't have very similar color but very far numbers
         // hsl color format
         let hue = number / max_number * (360 - margin); // hue (0 - 360)
         let sat = 43; // saturation (0 - 100)
@@ -125,7 +129,7 @@
     }
 
     .word {
-        
+        font-size: 3vh;
     }
 </style>
 </html>

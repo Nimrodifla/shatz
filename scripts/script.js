@@ -95,10 +95,12 @@ function load_learing_area(word_number, word, options_arr)
     for (let i in options_arr)
     {
         let opt = options_arr[i];
-        options_elem.innerHTML += '<div class="learning-option" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
-                                opt['word'] +
+        options_elem.innerHTML += '<div onclick="check_learning_choice(' + opt['number'] + ')" class="learning-option" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
+                                '<strong>' + opt['word'] + '</strong>' +
                                 '</div>'
     }
+
+    return word_number; // return correct answer number
 }
 
 function load_new_learning()
@@ -137,5 +139,20 @@ function load_new_learning()
     // shuffle options order
     options_arr.sort(() => Math.random() - 0.5);
 
-    load_learing_area(word_number, word, options_arr);
+    return load_learing_area(word_number, word, options_arr);
+}
+
+function check_learning_choice(word_number)
+{
+    const wrong_msgs = ['לא בדיוק...', 'אתה לא משהו אה?', 'בסדר יש לך את זה, פעם הבאה', 'אם לא תמשיך להתאמן איך תצליח?', 'כמעט... אבל לא', 'טעות אחשלנו', 'שמע אני אתחיל לחשוב שאתה פיתוח', 'לא.', 'פשוט לא', 'שקלת לוותר?', 'אל תוותר, ניסיון הבא אתה מצליח', 'לוזר', 'ממש ממש ממש לא', 'חשבתי שזה דיי קל', 'אני אגיד בעדינות שאתה לא מי שהייתי בוחר לשבת לידו בחד"א', 'ולידציה אה?', 'נפת, אבל אין מצב שאתה לא קם וממשיך'];
+    const correct_msgs = ['תותח!', 'עכשיו זה - חנתר!', 'נודר שאתה תותח במק"ס', 'שוב צדקת! (ש"צ)', 'זה מחקרניק!', 'כבוד הרלב"ד - נכון', 'נותן בראש!!!', 'חיים שלי אני מאוהבת', 'תמשיך ככה עוד תזכה למצוות', 'מכונת עבודה', 'יא סימטרי!', 'הייתי מת לעשות לך ש"צ עכשיו (תנחש איזה)', 'גיבור!', 'איזה מלך', 'תלמיד חכמים אתה', 'בשאלה צדקת, אבל שים לב שאתה מתנהג באדיבות כלפי חבריתך', 'חיה!!!!!'];
+    // correct_word_number is a local var in dua.html 
+    if (word_number == correct_word_number)
+    {
+        alert(correct_msgs[randint(correct_msgs.length)]);
+        correct_word_number = load_new_learning();
+    }
+    else{
+        alert(wrong_msgs[randint(wrong_msgs.length)]);
+    }
 }

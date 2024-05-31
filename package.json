@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "name": "shatzdb",
+  "description": "This project let's you read, find, and learn all the Shatz combinations!",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nimrodifla/shatz.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nimrodifla/shatz/issues"
+  },
+  "homepage": "https://github.com/Nimrodifla/shatz#readme"
+}

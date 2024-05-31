@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>שצ</title>
-</head>
-<body>
-    <h1 id="title">ש"צ Engine</h1>
-    <input id="search_box" placeholder='חפש ש"צ [משפט \ מספר]'/>
-    <div id="cont"></div>
-</body>
-<script src="./script.js"></script>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
 
     body {
         text-align: center;
@@ -58,5 +44,3 @@
     .word {
         font-size: 3vh;
     }
-</style>
-</html>

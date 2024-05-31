@@ -22,4 +22,6 @@ App is running in 127.0.0.1:80 (localhost:80).
 
 ## TO DO
 
-- Create learning platform (like a custom Dualingo for Shatzes)
+- Better UI
+- Satisfying animations :)
+- Create a "Test Yourself" platform, where users can test how much they remember.

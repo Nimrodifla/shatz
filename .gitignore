@@ -3,6 +3,3 @@ helper.py
 
 # node
 node_modules/
-
-# for static - dont upload README
-*.md

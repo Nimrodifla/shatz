@@ -32,14 +32,6 @@ h1, h2, h3, h4, h5, h6, input, button {
     font-size: 2vh;
 }
 
-#home-btn {
-    background: -webkit-linear-gradient(90deg, rgba(255,140,63,1) 0%, rgba(252,176,69,1) 100%);
-}
-
-#dua-btn {
-    background: -webkit-linear-gradient(90deg, rgba(99,255,63,1) 0%, rgba(69,252,198,1) 100%);
-}
-
 .word {
     font-size: 3vh;
 }

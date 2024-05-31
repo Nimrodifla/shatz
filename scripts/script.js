@@ -72,7 +72,7 @@ function search_results(keyword)
     {
         let word = results_arr[i];
         cont_elem.innerHTML += '<div class="word" style="color:' + get_color_by_number(total_length, parseInt(i)) + '">'
-            + 'ש"צ מספר' + ' [' + i + ']: <strong>' + word + '</strong></div>';
+            + 'ש"צ' + ' [' + i + ']: <strong>' + word + '</strong></div>';
     }
 }
 
@@ -89,7 +89,7 @@ function load_learing_area(word_number, word, options_arr)
 
     correct_elem.style.color = get_color_by_number(db_length, word_number);
     correct_elem.innerHTML = word;
-    word_elem.innerHTML = 'ש"צ מספר ' + '<strong>' + word_number + '</strong>';
+    word_elem.innerHTML = 'ש"צ ' + '[<strong>' + word_number + '</strong>]';
     options_elem.innerHTML = 'בחר את הפירוש הנכון' + '<br>';
 
     for (let i in options_arr)
@@ -144,15 +144,26 @@ function load_new_learning()
 
 function check_learning_choice(word_number)
 {
+    const wrong_color = 'firebrick';
+    const correct_color = 'MediumSeaGreen';
     const wrong_msgs = ['לא בדיוק...', 'אתה לא משהו אה?', 'בסדר יש לך את זה, פעם הבאה', 'אם לא תמשיך להתאמן איך תצליח?', 'כמעט... אבל לא', 'טעות אחשלנו', 'שמע אני אתחיל לחשוב שאתה פיתוח', 'לא.', 'פשוט לא', 'שקלת לוותר?', 'אל תוותר, ניסיון הבא אתה מצליח', 'לוזר', 'ממש ממש ממש לא', 'חשבתי שזה דיי קל', 'אני אגיד בעדינות שאתה לא מי שהייתי בוחר לשבת לידו בחד"א', 'ולידציה אה?', 'נפת, אבל אין מצב שאתה לא קם וממשיך'];
     const correct_msgs = ['תותח!', 'עכשיו זה - חנתר!', 'נודר שאתה תותח במק"ס', 'שוב צדקת! (ש"צ)', 'זה מחקרניק!', 'כבוד הרלב"ד - נכון', 'נותן בראש!!!', 'חיים שלי אני מאוהבת', 'תמשיך ככה עוד תזכה למצוות', 'מכונת עבודה', 'יא סימטרי!', 'הייתי מת לעשות לך ש"צ עכשיו (תנחש איזה)', 'גיבור!', 'איזה מלך', 'תלמיד חכמים אתה', 'בשאלה צדקת, אבל שים לב שאתה מתנהג באדיבות כלפי חבריתך', 'חיה!!!!!'];
     // correct_word_number is a local var in dua.html 
     if (word_number == correct_word_number)
     {
-        alert(correct_msgs[randint(correct_msgs.length)]);
-        correct_word_number = load_new_learning();
+        // show msg
+        msg_elem.style.color = correct_color;
+        msg_elem.innerHTML = correct_msgs[randint(correct_msgs.length)];
+        
+        // show correct satisfying animation
+        // to do...
+
+        // show next word quiz btn
+
     }
     else{
-        alert(wrong_msgs[randint(wrong_msgs.length)]);
+        // show msg
+        msg_elem.style.color = wrong_color;
+        msg_elem.innerHTML = wrong_msgs[randint(wrong_msgs.length)];
     }
 }

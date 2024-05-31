@@ -19,26 +19,8 @@
         font-style: normal;
     }
 
-    #title {
+    .title {
         font-size: 6vh;
-        background: -webkit-linear-gradient(90deg, rgba(255,140,63,1) 0%, rgba(252,176,69,1) 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-
-    #cont {
-        text-align: right;
-        margin: auto;
-        padding: auto;
-        width: fit-content;
-    }
-
-    #search_box {
-        padding: 10px 30px;
-        border-radius: 10px;
-        border-style: none;
-        background-color: ghostwhite;
-        outline-color: black;
     }
 
     .word {

@@ -1,28 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap');
 
-    body {
-        text-align: center;
-        direction: rtl;
+body {
+    text-align: center;
+    direction: rtl;
 
-        font-family: "Heebo", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 200px;
-        font-style: normal;
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
 
-        margin-bottom: 100px;
-    }
+    margin-bottom: 100px;
+}
 
-    h1, h2, h3, h4, h5, h6, #search_box {
-        font-family: "Heebo", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 300px;
-        font-style: normal;
-    }
+h1, h2, h3, h4, h5, h6, input, button {
+    font-family: "Heebo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300px;
+    font-style: normal;
+}
 
-    .title {
-        font-size: 6vh;
-    }
+.title {
+    font-size: 6vh;
+}
 
-    .word {
-        font-size: 3vh;
-    }
+.nav-btn {
+    margin: 0px auto 20px auto;
+    padding: 10px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+.word {
+    font-size: 3vh;
+}

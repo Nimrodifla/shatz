@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1 class="title" id="title">ש"צ Engine</h1>
+    <button id="dua-btn" class="nav-btn" onclick="location.href = '/shatzlingo';">למד עם <strong>ש"צ-לינגו</strong></button><br>
     <input id="search_box" placeholder='חפש ש"צ [משפט \ מספר]'/>
     <div id="cont"></div>
 </body>
@@ -24,7 +25,7 @@
 </script>
 <style>
     /* Custom page style */
-    
+
     #title {
         background: -webkit-linear-gradient(90deg, rgba(255,140,63,1) 0%, rgba(252,176,69,1) 100%);
         -webkit-background-clip: text;
@@ -36,6 +37,10 @@
         margin: auto;
         padding: auto;
         width: fit-content;
+    }
+
+    #dua-btn {
+        background: -webkit-linear-gradient(90deg, rgba(99,255,63,1) 0%, rgba(69,252,198,1) 100%);
     }
 
     #search_box {

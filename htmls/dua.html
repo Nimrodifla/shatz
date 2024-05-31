@@ -10,6 +10,7 @@
     <h1 class="title" id="title">ש"צ-לינגו</h1>
 
     <div id="learingArea">
+        <div id="learingCorrectAns"></div>
         <div id="learingWord"></div>
         <div id="learingOptions">
 
@@ -20,12 +21,18 @@
 <script src="/script.js"></script>
 <script>
     // Page Elements:
+    area_elem = document.getElementById('learningArea');
+    correct_elem = document.getElementById('learingCorrectAns');
+    word_elem = document.getElementById('learingWord');
+    options_elem = document.getElementById('learingOptions');
 
     // Init Procces:
+
+    load_new_learning();
 </script>
 <style>
     /* Custom page style */
-    
+
     #title {
         background: -webkit-linear-gradient(90deg, rgba(99,255,63,1) 0%, rgba(69,252,198,1) 100%);
         -webkit-background-clip: text;

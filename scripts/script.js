@@ -11,6 +11,18 @@ function parse_db()
     local_db  = {0: 'שבירת צופן', 1: 'שיעור צופן', 2: 'שירטוט צופן', 3: 'שמירת צופן', 4: 'שבירת צלע', 5: 'שמירת צלע', 6: 'שבלול צולע', 7: 'שין צדיק', 8: 'שבת צדיק', 9: 'שבת צחורה', 10: 'שוב צדקת', 11: 'שוב צדקתי', 12: 'שומע? צדקת', 13: 'שווה צביטה', 14: 'שווה צדקה', 15: 'שווה צפירה', 16: 'שווה צלעות', 17: 'שוטר צבאי', 18: 'שימון צבאי', 19: 'שולק צבים', 20: 'שרדר צבים', 21: 'שומעים צלול', 22: 'שלוק צלול', 23: 'שומר צוות', 24: 'שונא צרבת', 25: 'שופט צדיקים', 26: 'שינת צדיקים', 27: 'שחרור צואה', 28: 'שחרור צוויץ', 29: 'שחרור צלע', 30: 'שחרור צרור', 31: 'שי צהוב', 32: 'שלט צהוב', 33: 'שיבוש צעדים', 34: 'שיואו ציצי', 35: 'שלחי ציצי', 36: 'שמנת. ציצי?', 37: 'ששש... ציצי', 38: 'שתקי! ציצי?', 39: 'שיחה צפופה', 40: 'שייק צנוברים', 41: 'שיכור צרוד', 42: 'שילוב צבעים', 43: 'שינה צהלית', 44: 'שמחה צהלית', 45: 'שינוי צריך', 46: 'שירה צורמת', 47: 'שריקה צורמת', 48: 'שירה ציבורית', 49: 'שירת ציפורים', 50: 'שלאקה ציוותית', 51: 'שליחה צדיקה', 52: 'שליפת ציציות', 53: 'שליקה צמודה', 54: 'שמירה צמודה', 55: 'שליקת ציץ', 56: 'שלפי ציץ', 57: 'שלשול צווחני', 58: 'שמנה צינורית', 59: 'שמעתי צעקות', 60: 'שניצל צמיגי', 61: 'שפיכה צהובה', 62: 'שפשוף צנוע', 63: 'שתקן צנוע', 64: "שתקי צ'וצ'ה", 65: "שקט צ'וצ'ה", 66: 'שקט צוציק', 67: 'שקרן צבוע', 68: 'שרברב צמא', 69: 'שרוך צבעוני', 70: 'שרירי צוואר', 71: 'שרירן ציפלון', 72: 'שרמוטה צדיקה', 73: 'שרמוטה צודקת', 74: 'שרמוטה צוותית', 75: 'שרמוטה ציבורית', 76: 'שרמוטה צמודה', 77: 'שתיקת צרצרים', 78: 'שתית ציאניד?'};
 }
 
+// random int from 0 to max (max not included)
+function randint(max)
+{
+    return Math.floor(Math.random() * max);
+}
+
+// returns random word number (as string)
+function get_random_word_number()
+{
+    return randint(parseInt(Object.keys(local_db).length)).toString();
+}
+
 // get color to a mathing number
 function get_color_by_number(max_number, number)
 {
@@ -69,4 +81,61 @@ function search_box_change()
 {
     let keyword = search_box_elem.value;
     search_results(keyword);
+}
+
+function load_learing_area(word_number, word, options_arr)
+{
+    const db_length = Object.keys(local_db).length;
+
+    correct_elem.style.color = get_color_by_number(db_length, word_number);
+    correct_elem.innerHTML = word;
+    word_elem.innerHTML = 'ש"צ מספר ' + word_number;
+    options_elem.innerHTML = 'בחר את הפירוש הנכון' + '<br>';
+
+    for (let i in options_arr)
+    {
+        let opt = options_arr[i];
+        options_elem.innerHTML += '<div class="learning-options" style="color: ' + get_color_by_number(db_length, parseInt(opt['number'])) + '">' +
+                                opt['word'] +
+                                '</div>'
+    }
+}
+
+function load_new_learning()
+{
+    let word_number = get_random_word_number();
+    let word = local_db[word_number];
+    
+    const num_of_options = 4;
+    let options_arr = [];
+    for (let i = 0; i < num_of_options - 1; i++)
+    {
+        let flag = true;
+        while (flag) {
+            let rndopt = get_random_word_number();
+            rndopt = {'word': local_db[rndopt], 'number': rndopt};
+            // check if already in options_arr
+            let found = false;
+            for (let j in options_arr)
+            {
+                let o = options_arr[j];
+                if (o['number'] == rndopt['number'])
+                {
+                    found = true;
+                }
+            }
+
+            if (!(found || rndopt['word'] == word))
+            {
+                options_arr.push(rndopt);
+                flag = false;
+            }
+        }
+    }
+    // add correct option
+    options_arr.push({'word': word, 'number': word_number});
+    // shuffle options order
+    options_arr.sort(() => Math.random() - 0.5);
+
+    load_learing_area(word_number, word, options_arr);
 }

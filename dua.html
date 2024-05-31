@@ -18,6 +18,7 @@
         <br>
         <div id="learningOptions"></div>
         <div id="learningMsg"></div>
+        <button id="nextWord" onclick="correct_word_number = load_new_learning();"><strong>ש"צ הבא</strong></button>
     </div>
 </body>
 
@@ -30,9 +31,10 @@
     word_elem = document.getElementById('learningWord');
     options_elem = document.getElementById('learningOptions');
     msg_elem = document.getElementById('learningMsg');
+    next_btn_elem = document.getElementById('nextWord');
 
     // Init Procces:
-
+    let got_correct_ans = false;
     correct_word_number = load_new_learning();
 </script>
 <style>
@@ -67,20 +69,21 @@
 
     #learningWord {
         font-size: 5vh;
-        /*
-        background: rgb(255,0,0);
-        background: -moz-linear-gradient(90deg, rgba(255,0,0,1) 17%, rgba(255,0,254,1) 34%, rgba(89,0,255,1) 50%, rgba(0,142,255,1) 68%, rgba(0,255,38,1) 86%);
-        background: -webkit-linear-gradient(90deg, rgba(255,0,0,1) 17%, rgba(255,0,254,1) 34%, rgba(89,0,255,1) 50%, rgba(0,142,255,1) 68%, rgba(0,255,38,1) 86%);
-        background: linear-gradient(90deg, rgba(255,0,0,1) 17%, rgba(255,0,254,1) 34%, rgba(89,0,255,1) 50%, rgba(0,142,255,1) 68%, rgba(0,255,38,1) 86%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff0000",endColorstr="#00ff26",GradientType=1);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        */
         color: black;
     }
 
     #learningOptions {
         
+    }
+
+    #nextWord {
+        display: none;
+        margin: 10px auto;
+        font-size: 5vh;
+        width: 75%;
+        background-color: MediumSpringGreen;
+        border-style: none;
+        border-radius: 15px;
     }
 
     .learning-option {
@@ -92,16 +95,17 @@
         border-color: rgb(128, 128, 128);
         border-style: solid;
         border-width: 1px;
+        width: 50%;
         
         filter: drop-shadow(3px 3px 5px #7f7f7f);
     }
 
     .eliminated {
-        background-color: red;
+        background-color: rgb(255, 163, 163);
     }
 
     .correct {
-        background-color: greenyellow;
+        background-color: rgb(184, 255, 151);
     }
 </style>
 </html>

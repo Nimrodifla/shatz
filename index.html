@@ -8,7 +8,9 @@
 </head>
 <body>
     <h1 class="title" id="title">ש"צ Engine</h1>
-    <button id="dua-btn" class="nav-btn" onclick="location.href = '/shatz/dua.html';">למד עם <strong>ש"צ-לינגו</strong></button><br>
+    <button id="home-btn" class="nav-btn">חזור <strong>הביתה</strong></button>
+    <span class="gap"></span>
+    <button id="dua-btn" class="nav-btn" onclick="location.href = '/shatz/dua.html';">למד עם <strong>ש"צ-לינגו</strong> 🦉</button><br>
     <input id="search_box" placeholder='חפש ש"צ [משפט \ מספר]'/>
     <div id="cont"></div>
 </body>
@@ -40,16 +42,13 @@
         width: fit-content;
     }
 
-    #dua-btn {
-        background: -webkit-linear-gradient(90deg, rgba(99,255,63,1) 0%, rgba(69,252,198,1) 100%);
-    }
-
     #search_box {
         padding: 10px 30px;
         border-radius: 10px;
         border-style: none;
         background-color: ghostwhite;
         outline-color: black;
+        font-size: 3vh;
     }
 </style>
 </html>
